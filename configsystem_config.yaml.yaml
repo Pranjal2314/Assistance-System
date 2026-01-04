@@ -1,0 +1,40 @@
+system:
+  name: "Paper Quality Control Vision System"
+  version: "1.0.0"
+  description: "Artificial vision system for detecting impurities in paper sheets"
+
+image_processing:
+  resize_width: 1024
+  resize_height: 768
+  grayscale: true
+  blur_kernel_size: 5
+  contrast_enhancement: true
+  histogram_equalization: true
+
+impurity_detection:
+  min_impurity_size: 10  # pixels
+  max_impurity_size: 1000  # pixels
+  intensity_threshold: 30
+  edge_detection_sensitivity: 0.3
+  texture_analysis: true
+  color_variation_threshold: 15
+
+quality_metrics:
+  max_allowed_impurities: 5
+  max_impurity_area_percentage: 2.0  # % of total area
+  min_brightness: 180  # 0-255 scale
+  max_brightness: 240  # 0-255 scale
+  uniformity_threshold: 85  # %
+
+output:
+  generate_report: true
+  report_format: "csv"
+  save_processed_images: true
+  image_format: "jpg"
+  log_level: "INFO"
+  save_defect_masks: true
+
+testing:
+  test_image_path: "tests/test_data/"
+  validation_threshold: 95.0  # % accuracy required
+  batch_test_size: 10
